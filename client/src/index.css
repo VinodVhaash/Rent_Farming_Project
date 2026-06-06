@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ===== Custom Breakpoint for Desktop vs Laptop ===== */
+@theme {
+  --breakpoint-3xl: 1600px;
+}
+
+/* ===== CSS Custom Properties ===== */
+:root {
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Brand Colors */
+  --color-primary: #16a34a;
+  --color-primary-dark: #15803d;
+  --color-primary-light: #22c55e;
+  --color-secondary: #f59e0b;
+  --color-secondary-dark: #d97706;
+  --color-links-nav: var(--color-info);
+  /* Neutral */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+}
+
+/* ===== Base Resets ===== */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #1e293b;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1e293b;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
