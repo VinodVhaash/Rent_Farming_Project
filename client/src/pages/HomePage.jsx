@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
-  FaSeedling, FaHandshake, FaShieldAlt, FaSearch,
-  FaUserPlus, FaCheckCircle, FaArrowRight, FaMobileAlt,
-  FaMapMarkedAlt, FaClipboardCheck, FaUsers, FaLeaf, FaEnvira
+  FaSeedling, FaShieldAlt, FaSearch,
+  FaUserPlus, FaCheckCircle, FaArrowRight,
+  FaMapMarkedAlt, FaUsers, FaLeaf
 } from 'react-icons/fa';
 // Note: farmimg.png is in /public — accessed via URL, not imported
 
@@ -15,7 +15,7 @@ const HomePage = () => {
         style={{ backgroundImage: "url('/farmimg2.png')" }}
       >
         {/* Very light left-to-right gradient so left text area has slight contrast */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.75)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.60)_100%)]" />
 
         <div className="relative w-full mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-14 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
 
@@ -119,63 +119,117 @@ const HomePage = () => {
       </section>
 
 
-      {/* ═══════ FEATURES SECTION ═══════ */}
-      <section className="my-4" style={{ backgroundImage: "url('/farm3.png')" }}>
-        <div className="w-full mx-auto">
-          <div className="text-center bg-blue-500/20 backdrop-blur-xl">
-            <p className="text-sm font-semibold text-green-600 uppercase tracking-wide mb-2">Why Choose Us</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-2xl xl:text-3xl 3xl:text-4xl font-bold text-gray-900 mb-4">Everything You Need for Land Rental</h2>
-            <p className="text-gray-500 w-full mx-auto text-center">Our platform simplifies the process of renting agricultural land, making it accessible and secure for all Indian farmers.</p>
+      {/* ═══════ FEATURES / WHY CHOOSE US SECTION ═══════ */}
+      <section
+        className="relative py-10 sm:py-14 lg:py-16 overflow-hidden"
+        style={{
+          backgroundImage: "url('/farm3.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Soft overlay for readability */}
+        <div className="" />
+
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          {/* ── Section Header ── */}
+          <div className="text-center mb-8 sm:mb-10">
+            <p className="inline-flex items-center gap-2 text-sm font-bold text-green-700 uppercase tracking-widest mb-3">
+              <span className="text-lg">🌿</span> Why Choose Us <span className="text-lg">🌿</span>
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-2">
+              Everything You Need for{' '}
+              <span className="text-green-700">Land Rental</span>
+            </h2>
+            {/* Green underline accent */}
+            <div className="w-24 h-1 bg-green-600 rounded-full mx-auto mt-2 mb-4" />
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+              Our platform makes renting agricultural land simple, secure, and accessible for every Indian farmer.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 bg-blue-500/20 backdrop-blur-xl">
+          {/* ── Cards Grid ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               {
-                icon: <FaSearch className="text-2xl" />,
+                img: '/icon_easy_search.png',
                 title: 'Easy Land Search',
-                desc: 'Filter by location, soil type, crop suitability, area, and budget to find the perfect plot.',
-                color: 'bg-blue-50 text-blue-600',
+                desc: 'Search land by location, soil type, crop suitability, area, and budget with ease.',
+                bg: 'bg-gradient-to-br from-blue-300/80 to-sky-200/80 backdrop-blur-sm',
+                ring: 'ring-blue-400',
+                arrow: 'bg-orange-500',
               },
               {
-                icon: <FaShieldAlt className="text-2xl" />,
+                img: '/icon_verified.png',
                 title: 'Verified Listings',
-                desc: 'Every land listing is reviewed and approved by our admin team for authenticity.',
-                color: 'bg-green-50 text-green-600',
+                desc: 'All land listings are verified by our admin team for authenticity and trust.',
+                //bg: 'bg-gradient-to-br from-green-50 to-emerald-50',
+                bg: 'bg-gradient-to-br from-indigo-200 via-blue-100 to-slate-100',
+                ring: 'ring-indigo-300',
+                arrow: 'bg-blue-500',
               },
               {
-                icon: <FaHandshake className="text-2xl" />,
+                img: '/icon_direct_contact.png',
                 title: 'Direct Contact',
-                desc: 'Connect directly with landowners. No middlemen, no extra charges.',
-                color: 'bg-amber-50 text-amber-600',
+                desc: 'Connect directly with landowners. No middlemen, no hidden fees – complete transparency.',
+                bg: 'bg-gradient-to-br from-orange-200 via-amber-100 to-yellow-50',
+                ring: 'ring-amber-300',
+                arrow: 'bg-orange-500',
               },
               {
-                icon: <FaMobileAlt className="text-2xl" />,
+                img: '/icon_mobile.png',
                 title: 'Mobile Friendly',
-                desc: 'Designed for smartphones. Access the platform even on low-bandwidth connections.',
-                color: 'bg-purple-50 text-purple-600',
+                desc: 'Fully responsive platform accessible anytime, anywhere on any device.',
+                bg: 'bg-gradient-to-br from-violet-200 via-purple-100 to-fuchsia-50',
+                ring: 'ring-violet-300',
+                arrow: 'bg-orange-500',
               },
               {
-                icon: <FaMapMarkedAlt className="text-2xl" />,
+                img: '/icon_india_coverage.png',
                 title: 'Pan-India Coverage',
-                desc: 'Browse land listings across multiple Indian states and districts.',
-                color: 'bg-red-50 text-red-600',
+                desc: 'Browse agricultural land listings across multiple Indian states and districts.',
+                bg: 'bg-gradient-to-br from-emerald-200 via-teal-100 to-cyan-100',
+                ring: 'ring-emerald-300',
+                arrow: 'bg-orange-500',
               },
               {
-                icon: <FaClipboardCheck className="text-2xl" />,
-                title: '7/12 Document Support',
-                desc: 'Upload and verify land ownership documents securely on the platform.',
-                color: 'bg-indigo-50 text-indigo-600',
+                img: '/icon_support.png',
+                title: '24/7 Support',
+                desc: 'Upload documents securely and get support from our dedicated team anytime.',
+                bg: 'bg-gradient-to-br from-rose-200 via-orange-100 to-amber-50',
+                ring: 'ring-rose-300',
+                arrow: 'bg-orange-500',
               },
-            ].map((feature, index) => (
+            ].map((card, i) => (
               <div
-                key={index}
-                className="group p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-lg bg-blue-300 transition-all duration-300 hover:-translate-y-1"
+                key={i}
+                className={`group relative flex items-start gap-4 p-5 sm:p-6 rounded-2xl ${card.bg} ring-1 ${card.ring} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
               >
-                <div className={`w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  {feature.icon}
+                {/* Icon image */}
+                <div className="flex-shrink-0 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem]">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
+
+                {/* Text content */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base sm:text-lg font-extrabold text-gray-900 mb-1">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+
+                {/* Arrow button */}
+                <div
+                  className={`absolute bottom-4 right-4 w-8 h-8 ${card.arrow} rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}
+                >
+                  <FaArrowRight className="text-white text-xs" />
+                </div>
               </div>
             ))}
           </div>
