@@ -38,14 +38,14 @@ const register = async (req, res, next) => {
       role: role || 'farmer',
     });
 
-    // TODO: Send OTP (commented out — OtpVerifications table not created yet)
-    // const otpResult = await otpService.sendOtp(userId, phone);
+    // Send OTP
+    const otpResult = await otpService.sendOtp(userId, phone);
 
     res.status(201).json({
       success: true,
-      message: 'Registration successful!',
+      message: 'Registration successful. Please verify your OTP.',
       userId: user.userId,
-      // ...(process.env.NODE_ENV !== 'production' && { otp: otpResult.otp }),
+      ...(process.env.NODE_ENV !== 'production' && { otp: otpResult.otp }), // dev only
     });
   } catch (error) {
     next(error);

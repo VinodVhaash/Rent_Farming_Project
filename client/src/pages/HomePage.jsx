@@ -120,7 +120,7 @@ const HomePage = () => {
 
 
       {/* ═══════ FEATURES SECTION ═══════ */}
-      <section className="my-4">
+      <section className="my-4" style={{ backgroundImage: "url('/farm3.png')" }}>
         <div className="w-full mx-auto">
           <div className="text-center bg-blue-500/20 backdrop-blur-xl">
             <p className="text-sm font-semibold text-green-600 uppercase tracking-wide mb-2">Why Choose Us</p>

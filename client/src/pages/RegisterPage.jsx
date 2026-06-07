@@ -35,15 +35,14 @@ const RegisterPage = () => {
     setIsLoading(true);
     try {
       const { data } = await authService.register(form);
-      toast.success(data.message || 'Registration successful!');
+      toast.success(data.message || 'Registration successful! Please verify OTP.');
 
-      // TODO: Re-enable OTP flow when OtpVerifications table is created
-      // if (data.otp) {
-      //   toast.info(`Dev OTP: ${data.otp}`, { autoClose: 10000 });
-      // }
-      // navigate('/verify-otp', { state: { userId: form.userId } });
+      // In dev mode, show OTP for testing
+      if (data.otp) {
+        toast.info(`Dev OTP: ${data.otp}`, { autoClose: 10000 });
+      }
 
-      navigate('/login');
+      navigate('/verify-otp', { state: { userId: form.userId } });
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed.');
     } finally {
