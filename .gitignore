@@ -25,3 +25,11 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+# config
+server\config\init-db.sql
+
+README.md
+Requirement.md
+
+
+
