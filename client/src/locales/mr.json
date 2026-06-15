@@ -1,0 +1,62 @@
+{
+  "home": {
+    "badge": "भारतातील कृषी जमीन भाडेव्यवस्थेचे विश्वसनीय व्यासपीठ",
+    "growTogether": "एकत्रित वाढवा, एकत्र समृद्ध व्हा",
+    "description": " connecting indian landowners with farmers who need land.\nFind the perfect plot for farming or list your land for rent –\nall in one trusted platform.",
+    "registerButton": "नोंदणी करा 🌾",
+    "browseButton": "जमीन ब्राउझ करा",
+    "stats": {
+      "farmers": "शेतकरी",
+      "listings": "सूची",
+      "states": "राज्ये"
+    },
+    "trustText": "हजारो भारतीय शेतकरी आणि जमीनमालक रेंट फार्मिंगवर विश्वास ठेवतात, जे त्यांना सुरक्षित आणि सोपा अनुभव देतात.",
+    "step1": {
+      "title": "नोंदणी करा",
+      "desc": "तुमचे खाते तयार करा आणि तुमचा शेतीचा प्रवास सुरू करा."
+    },
+    "step2": {
+      "title": "जमीन जोडा",
+      "desc": "तुमची उपलब्ध जमीन, पिके, मातीचा प्रकार, भाडे आणि स्थान याबद्दल माहिती भरा."
+    },
+    "step3": {
+      "title": "सुरुवात करा",
+      "desc": "शेतकऱ्यांशी कनेक्ट व्हा, सौदे करा आणि सुरक्षित भाड्याच्या कराराचा आनंद घ्या."
+    }
+  },
+  "register": {
+    "brandName": "रेंट फार्मिंग",
+    "tagline": "तुमचे खाते तयार करा आणि तुमचा शेतीचा प्रवास सुरू करा.",
+    "pageTitle": "नोंदणी करा",
+    "roleLabel": "मला हवे आहे",
+    "roleFarmer": "🌾 माझी जमीन सूचीबद्ध करा (शेतकरी)",
+    "roleBuyer": "🔍 जमीन शोधा (खरेदीदार)",
+    "firstNameLabel": "पहिले नाव *",
+    "firstNamePlaceholder": "पहिले नाव",
+    "lastNameLabel": "आडनाव *",
+    "lastNamePlaceholder": "आडनाव",
+    "addressLabel": "पत्ता",
+    "addressPlaceholder": "तुमचा पूर्ण पत्ता",
+    "surveyLabel": "7/12 सर्वे नंबर",
+    "surveyPlaceholder": "जमिनीचा सर्वे नंबर",
+    "phoneLabel": "फोन नंबर *",
+    "phonePlaceholder": "10 अंकी मोबाइल नंबर",
+    "userIdLabel": "वापरकर्ता आयडी *",
+    "userIdPlaceholder": "एक वापरकर्ता आयडी निवडा",
+    "passwordLabel": "पासवर्ड *",
+    "passwordPlaceholder": "किमान 8 अक्षरे, A-z, 0-9, @#$",
+    "confirmPasswordLabel": "पासवर्ड पुष्टी करा *",
+    "confirmPasswordPlaceholder": "पासवर्ड पुन्हा टाका",
+    "submitButton": "खाते तयार करा",
+    "submittingButton": "खाते तयार होत आहे...",
+    "alreadyHaveAccount": "आधीच खाते आहे?",
+    "loginLink": "येथे लॉगिन करा",
+    "errors": {
+      "passwordMismatch": "पासवर्ड जुळत नाहीत.",
+      "registrationFailed": "नोंदणी अयशस्वी."
+    },
+    "success": {
+      "registered": "नोंदणी यशस्वी! कृपया OTP सत्यापित करा."
+    }
+  }
+}
