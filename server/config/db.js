@@ -16,7 +16,7 @@ const dbConfig = {
   //for prod
   options: {
     encrypt: true,                  // ← MUST be true for AWS RDS
-    trustServerCertificate: false,  // ← false in production (RDS has valid cert)
+    trustServerCertificate: true,  // ← false in production (RDS has valid cert)
     enableArithAbort: true,
   },
 
