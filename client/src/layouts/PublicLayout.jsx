@@ -413,15 +413,15 @@ const PublicLayout = () => {
               <ul className="space-y-2.5 xl:space-y-3 text-sm xl:text-base text-gray-400 list-none p-0 m-0 text-center">
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📧</span>
-                  <span>support@rentfarming.in</span>
+                  <span>Coming soon</span>
                 </li>
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📞</span>
-                  <span>+91 98765 43210</span>
+                  <span>Coming soon</span>
                 </li>
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📍</span>
-                  <span>Pune, Maharashtra, India</span>
+                  <span>Kembali, Tal.Kagal, Kolhapur, Maharashtra, India</span>
                 </li>
               </ul>
             </div>
@@ -430,6 +430,7 @@ const PublicLayout = () => {
           {/* Copyright */}
           <div className="border-t border-gray-800 pt-6 xl:pt-8 text-center text-xs sm:text-sm xl:text-sm text-gray-500">
             <p>© {new Date().getFullYear()} Rent Farming. All rights reserved.</p>
+            <p>Developed by : Dheeraj and Vinod</p>
           </div>
 
         </div>

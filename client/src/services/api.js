@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+//  VITE_API_BASE_URL = https://your-ec2-ip-or-domain.com/api
+// http://13.234.72.231:5001/api
+
+
 const API = axios.create({
-  baseURL: '/api',
+  // baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },

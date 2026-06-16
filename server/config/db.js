@@ -5,12 +5,21 @@ const dbConfig = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   server: process.env.DB_SERVER || 'localhost',
-  port: 1433,
+  port: parseInt(process.env.DB_PORT) || 1433,
   database: process.env.DB_NAME || 'RentFarmingDB',
+  //for local configuration
+  // options: {
+  //   encrypt: false, // set true for Azure
+  //   trustServerCertificate: true,
+  // },
+
+  //for prod
   options: {
-    encrypt: false, // set true for Azure
-    trustServerCertificate: true,
+    encrypt: true,                  // ← MUST be true for AWS RDS
+    trustServerCertificate: false,  // ← false in production (RDS has valid cert)
+    enableArithAbort: true,
   },
+
   pool: {
     max: 10,
     min: 0,
@@ -23,7 +32,8 @@ let pool;
 const getPool = async () => {
   if (!pool) {
     pool = await sql.connect(dbConfig);
-    console.log('✅ Connected to MS SQL Server');
+    // console.log('✅ Connected to MS SQL Server');
+    console.log('✅ Connected to AWS RDS SQL Server');
   }
   return pool;
 };

@@ -30,9 +30,9 @@ const ContactPage = () => {
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
               {[
-                { icon: <FaEnvelope />, label: 'Email', value: 'support@rentfarming.in', color: 'bg-blue-50 text-blue-600' },
-                { icon: <FaPhone />, label: 'Phone', value: '+91 98765 43210', color: 'bg-green-50 text-green-600' },
-                { icon: <FaMapMarkerAlt />, label: 'Address', value: 'Pune, Maharashtra, India', color: 'bg-amber-50 text-amber-600' },
+                { icon: <FaEnvelope />, label: 'Email', value: 'coming soon', color: 'bg-blue-50 text-blue-600' },
+                { icon: <FaPhone />, label: 'Phone', value: 'coming soon', color: 'bg-green-50 text-green-600' },
+                { icon: <FaMapMarkerAlt />, label: 'Address', value: 'Kembali, Tal.Kagal, Kolhapur, Maharashtra, India', color: 'bg-amber-50 text-amber-600' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 p-4 rounded-xl border border-gray-100 hover:shadow-md transition-all">
                   <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
