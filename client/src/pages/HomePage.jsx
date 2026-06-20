@@ -4,10 +4,10 @@ import {
   FaUserPlus, FaCheckCircle, FaArrowRight,
   FaMapMarkedAlt, FaUsers, FaLeaf
 } from 'react-icons/fa';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import API from '../services/api';
 
 // Note: farmimg.png is in /public — accessed via URL, not imported
 
@@ -17,7 +17,7 @@ const HomePage = () => {
   const [farmerCount, setFarmerCount] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/users/farmer-count").then((res) => {
+    API.get("/users/farmer-count").then((res) => {
       setFarmerCount(res.data.count);
     }).catch((err) => {
       console.log(err);
@@ -38,9 +38,7 @@ const HomePage = () => {
 
           {/* ── LEFT: Text Content ── */}
           <div className="flex flex-col items-center text-center lg:ml-32 pt-12">
-            <div className="flex justify-end mb-4">
-              <LanguageSwitcher />
-            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-6 py-3 lg:px-8 lg:py-3.5 3xl:px-10 3xl:py-4 bg-green-900/85 backdrop-blur-sm rounded-full text-white text-xs lg:text-sm font-semibold mb-6 shadow-lg">
               <FaShieldAlt className="text-green-300 flex-shrink-0" />

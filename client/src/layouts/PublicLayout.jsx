@@ -3,12 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FaSeedling, FaBars, FaTimes, FaUserCircle, FaChevronRight } from 'react-icons/fa';
 import { logout } from '../store/slices/authSlice';
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const PublicLayout = () => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -44,11 +47,11 @@ const PublicLayout = () => {
   };
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/lands', label: 'Browse Lands' },
-    { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' },
-    { to: '/faq', label: 'FAQ' },
+    { to: '/', label: t('layout.nav.home', 'Home') },
+    { to: '/lands', label: t('layout.nav.browseLands', 'Browse Lands') },
+    { to: '/about', label: t('layout.nav.about', 'About') },
+    { to: '/contact', label: t('layout.nav.contact', 'Contact') },
+    { to: '/faq', label: t('layout.nav.faq', 'FAQ') },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -100,10 +103,10 @@ const PublicLayout = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className={`font-extrabold text-lg sm:text-xl tracking-tight leading-none transition-colors duration-300 ${navTransparent ? 'text-white' : 'text-gray-900'}`}>
-                    Rent<span className="text-green-600">Farming</span>
+                    {t('layout.brand.name', 'RentFarming')}
                   </span>
                   <span className={`text-[10px] font-medium tracking-widest uppercase leading-none mt-0.5 transition-colors duration-300 ${navTransparent ? 'text-green-200' : 'text-green-600/70'}`}>
-                    Agricultural Marketplace
+                    {t('layout.brand.tagline', 'Agricultural Marketplace')}
                   </span>
                 </div>
               </Link>
@@ -150,14 +153,15 @@ const PublicLayout = () => {
                 ))}
               </div>
 
-              {/* ── Desktop Auth Buttons (md and above) ── */}
+              {/* ── Desktop Auth Buttons + Language Switcher (md and above) ── */}
               <div className="hidden md:flex items-center gap-2.5 lg:gap-3 flex-shrink-0">
+                <LanguageSwitcher />
                 {isAuthenticated ? (
                   <>
                     {/* User greeting pill */}
                     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-300 ${navTransparent ? 'bg-white/15 text-white' : 'bg-green-50 text-green-800'}`}>
                       <FaUserCircle className="text-sm" />
-                      <span>Hi, {user?.firstName || 'User'}</span>
+                      <span>{t('layout.auth.greeting', { name: user?.firstName || 'User', defaultValue: 'Hi, {{name}}' })}</span>
                     </div>
                     <Link
                       to={getDashboardLink()}
@@ -173,7 +177,7 @@ const PublicLayout = () => {
                         }
                       `}
                     >
-                      Dashboard
+                      {t('layout.auth.dashboard', 'Dashboard')}
                       <FaChevronRight className="text-[9px]" />
                     </Link>
                     <button
@@ -190,7 +194,7 @@ const PublicLayout = () => {
                         }
                       `}
                     >
-                      Logout
+                      {t('layout.auth.logout', 'Logout')}
                     </button>
                   </>
                 ) : (
@@ -209,7 +213,7 @@ const PublicLayout = () => {
                         }
                       `}
                     >
-                      Login
+                      {t('layout.auth.login', 'Login')}
                       <FaChevronRight className="text-[10px]" />
                     </Link>
                     <Link
@@ -226,7 +230,7 @@ const PublicLayout = () => {
                         }
                       `}
                     >
-                      Register
+                      {t('layout.auth.register', 'Register')}
                       <FaChevronRight className="text-[10px]" />
                     </Link>
                   </>
@@ -305,19 +309,19 @@ const PublicLayout = () => {
                   {/* User greeting */}
                   <div className="col-span-2 flex items-center gap-2 px-4 py-2.5 bg-green-50 rounded-xl mb-1">
                     <FaUserCircle className="text-green-600 text-lg" />
-                    <span className="text-sm font-medium text-green-800">Hi, {user?.firstName || 'User'}</span>
+                    <span className="text-sm font-medium text-green-800">{t('layout.auth.greeting', { name: user?.firstName || 'User', defaultValue: 'Hi, {{name}}' })}</span>
                   </div>
                   <Link
                     to={getDashboardLink()}
                     className="text-center py-3 text-sm font-semibold text-green-700 border border-green-200 rounded-xl bg-white hover:bg-green-50 transition-all shadow-sm no-underline"
                   >
-                    Dashboard
+                    {t('layout.auth.dashboard', 'Dashboard')}
                   </Link>
                   <button
                     onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
                     className="py-3 text-sm font-semibold text-red-600 border border-red-200 rounded-xl bg-white hover:bg-red-50 transition-all shadow-sm cursor-pointer"
                   >
-                    Logout
+                    {t('layout.auth.logout', 'Logout')}
                   </button>
                 </>
               ) : (
@@ -326,16 +330,21 @@ const PublicLayout = () => {
                     to="/login"
                     className="text-center py-3.5 text-sm font-semibold text-gray-700 border border-gray-200 rounded-xl bg-white hover:bg-gray-50 transition-all shadow-sm no-underline"
                   >
-                    Login
+                    {t('layout.auth.login', 'Login')}
                   </Link>
                   <Link
                     to="/register"
                     className="text-center py-3.5 text-sm font-bold text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl shadow-md shadow-green-600/20 hover:shadow-lg transition-all no-underline"
                   >
-                    Get Started
+                    {t('layout.auth.getStarted', 'Get Started')}
                   </Link>
                 </>
               )}
+            </div>
+
+            {/* ── Language Switcher (mobile) ── */}
+            <div className="flex justify-center pt-3">
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
@@ -373,25 +382,24 @@ const PublicLayout = () => {
                 >
                   <FaSeedling className="text-white text-2xl" />
                 </div>
-                Rent Farming
+                {t('layout.footer.brandName', 'Rent Farming')}
               </div>
               <p className="text-sm xl:text-base text-gray-400 leading-relaxed max-w-xs mx-auto text-center">
-                India's trusted agricultural land rental marketplace. Connecting
-                landowners with farmers for better productivity.
+                {t('layout.footer.brandDescription', "India's trusted agricultural land rental marketplace. Connecting landowners with farmers for better productivity.")}
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="text-center ">
               <h4 className="font-semibold text-white mb-4 text-xs xl:text-sm uppercase tracking-widest">
-                Quick Links
+                {t('layout.footer.quickLinks', 'Quick Links')}
               </h4>
               <ul className="space-y-2.5 xl:space-y-3 text-sm xl:text-base list-none p-0 m-0">
                 {[
-                  { to: '/lands', label: 'Browse Lands' },
-                  { to: '/about', label: 'About Us' },
-                  { to: '/faq', label: 'FAQ' },
-                  { to: '/contact', label: 'Contact' },
+                  { to: '/lands', label: t('layout.nav.browseLands', 'Browse Lands') },
+                  { to: '/about', label: t('layout.footer.aboutUs', 'About Us') },
+                  { to: '/faq', label: t('layout.nav.faq', 'FAQ') },
+                  { to: '/contact', label: t('layout.nav.contact', 'Contact') },
                 ].map((link) => (
                   <li key={link.to}>
                     <Link
@@ -408,20 +416,20 @@ const PublicLayout = () => {
             {/* Contact Info */}
             <div className="text-center">
               <h4 className="font-semibold text-white mb-4 text-xs xl:text-sm uppercase tracking-widest">
-                Contact Info
+                {t('layout.footer.contactInfo', 'Contact Info')}
               </h4>
               <ul className="space-y-2.5 xl:space-y-3 text-sm xl:text-base text-gray-400 list-none p-0 m-0 text-center">
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📧</span>
-                  <span>Coming soon</span>
+                  <span>{t('layout.footer.comingSoon', 'Coming soon')}</span>
                 </li>
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📞</span>
-                  <span>Coming soon</span>
+                  <span>{t('layout.footer.comingSoon', 'Coming soon')}</span>
                 </li>
                 <li className="flex items-center justify-center gap-2.5">
                   <span className="text-base flex-shrink-0">📍</span>
-                  <span>Kembali, Tal.Kagal, Kolhapur, Maharashtra, India</span>
+                  <span>{t('layout.footer.address', 'Kembali, Tal.Kagal, Kolhapur, Maharashtra, India')}</span>
                 </li>
               </ul>
             </div>
@@ -429,8 +437,8 @@ const PublicLayout = () => {
 
           {/* Copyright */}
           <div className="border-t border-gray-800 pt-6 xl:pt-8 text-center text-xs sm:text-sm xl:text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} Rent Farming. All rights reserved.</p>
-            <p>Developed by : Dheeraj and Vinod</p>
+            <p>{t('layout.footer.copyright', { year: new Date().getFullYear(), defaultValue: '© {{year}} Rent Farming. All rights reserved.' })}</p>
+            <p>{t('layout.footer.developedBy', 'Developed by : Dheeraj and Vinod')}</p>
           </div>
 
         </div>

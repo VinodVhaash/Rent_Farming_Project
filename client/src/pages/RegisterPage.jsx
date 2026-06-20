@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { FaSeedling, FaEye, FaEyeSlash } from 'react-icons/fa';
 import authService from '../services/authService';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -56,10 +56,7 @@ const RegisterPage = () => {
   return (
     <div className="min-h-[80vh] flex items-center justify-center pt-24 py-8 sm:py-12 px-4">
       <div className="w-full max-w-sm sm:max-w-xl lg:max-w-2xl">
-        {/* ── Language Switcher (top-right) ── */}
-        <div className="flex justify-end mb-4">
-          <LanguageSwitcher />
-        </div>
+
 
         <div className="text-center mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 text-green-700 text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">
